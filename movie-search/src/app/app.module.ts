@@ -16,6 +16,11 @@ import { RecommendedListComponent } from './components/recommended-list/recommen
 import { MovieDetailedComponent } from './components/movie-detailed/movie-detailed.component';
 import { MoviesRoutingModule } from './components/movies/movies-routing.module';
 import { HomeRoutingModule } from './components/home/home-routing.module';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,11 @@ import { HomeRoutingModule } from './components/home/home-routing.module';
   	BrowserModule,
   AppRoutingModule,
   HomeRoutingModule,
-  MoviesRoutingModule
+  MoviesRoutingModule,
+  StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+  StoreRouterConnectingModule.forRoot(),
+  StoreModule.forRoot({}, {}),
+  EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
