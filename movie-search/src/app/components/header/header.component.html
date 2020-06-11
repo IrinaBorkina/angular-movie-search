@@ -1,0 +1,29 @@
+<nav class="navbar d-flex">
+  <div>
+    <a class="navbar-brand" href="#">
+      <img src="../../../assets/images/logo.png" alt="logo">
+    </a>
+  </div>
+
+  <div class="d-flex justify-content-around align-items-center flex-fill flex-wrap">
+    <ul class="navbar-nav d-flex flex-row justify-content-around">
+      <li class="nav-item mx-5">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+      </li>
+      <li class="nav-item mx-5">
+        <a class="nav-link" routerLink="/movies" routerLinkActive="active">Movies</a>
+      </li>
+      <li class="nav-item mx-5">
+        <a class="nav-link" routerLink="/tv-shows" routerLinkActive="active">TV Shows</a>
+      </li>
+
+      <li class="nav-item mx-5">
+        <a class="nav-link" routerLink="/movie-detailed" routerLinkActive="active">Detailed</a>
+      </li>
+    </ul>
+
+    <app-search></app-search>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

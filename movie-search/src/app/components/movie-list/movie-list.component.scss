@@ -1,0 +1,47 @@
+.movies {
+  margin: 0 20px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: repeat(3, 250px);
+
+  .movie {
+    background: url("../../../assets/images/movie-small.png") center no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 0;
+
+    .movie-link {
+      text-decoration: none;
+      color: #ededed;
+      
+      &:hover {
+        color: #6400a6;
+      }
+    }
+
+    .movie__name {
+      font-family: "Montserrat Bold";
+      font-size: 18px;
+      line-height: 22px;
+      text-align: center;
+      opacity: 0.8;
+      width: 100%;
+    }
+
+    .movie__description {
+      font-size: 14px;
+      color: rgba(237, 237, 237, 0.6);
+      background: linear-gradient(180deg, rgba(30, 30, 30, 0) 0%, #0d0c0c 63.02%);
+      margin: 0;
+      display: block;
+      text-overflow: ellipsis;
+      word-wrap: break-word;
+      overflow: hidden;
+      max-height: 3.6em;
+      line-height: 1.2em;
+    }
+  }
+}

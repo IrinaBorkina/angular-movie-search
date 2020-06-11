@@ -1,0 +1,27 @@
+.main-movie {
+  height: 680px;
+  background: url("../../../assets/images/movie.png") center no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    font-family: "Montserrat Bold";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 100px;
+    line-height: 90px;
+
+    text-align: center;
+
+    color: #ededed;
+
+    &--small {
+      font-size: 50px;
+    }
+  }
+}

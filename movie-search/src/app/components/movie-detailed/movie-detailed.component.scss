@@ -1,0 +1,94 @@
+.movie-poster {
+  height: 680px;
+  background: url("../../../assets/images/movie.png") center no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    font-family: "Montserrat Bold";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 100px;
+    line-height: 90px;
+    text-align: center;
+    color: #ededed;
+
+    &--small {
+      font-size: 50px;
+    }
+  }
+}
+
+.overview__title,
+.movie-info__title,
+.cast__title {
+  font-family: "Montserrat Bold";
+  font-size: 32px;
+  line-height: 39px;
+  color: #ededed;
+}
+
+.detailed {
+  display: flex;
+  flex-flow: wrap;
+  margin: 50px;
+
+  .overview {
+    flex: 1;
+    margin: 0 20px;
+
+    .overview__description {
+      font-size: 16px;
+      line-height: 24px;
+      color: rgba(237, 237, 237, 0.6);
+    }
+  }
+
+  .movie-info {
+    flex: 1;
+    margin: 0 20px;
+
+    .movie-info__list {
+      padding: 0;
+      margin: 0;
+      color: rgba(237, 237, 237, 0.6);
+      list-style: none;
+    }
+
+    .movie-info__criteria {
+      color: #ededed;
+    }
+  }
+}
+
+.cast {
+  margin: 50px;
+
+  .cast__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .cast__list > li {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .actor__img {
+    border-radius: 50%;
+  }
+
+  .actor__name {
+    font-family: "Montserrat Bold";
+    color: #ededed;
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 20px;
+  }
+}

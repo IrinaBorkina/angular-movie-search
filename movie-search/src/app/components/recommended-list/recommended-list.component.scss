@@ -1,0 +1,68 @@
+.recommended-list__title {
+  color: #ededed;
+}
+
+.nav-link {
+  position: relative;
+  color: #ededed99;
+}
+
+.nav-link:hover {
+  color: #ededed;
+}
+
+.nav-link:after {
+  display: block;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #6400a6;
+  content: "";
+  transition: width 0.3s ease-out;
+}
+
+.nav-link:hover:after,
+.nav-link:focus:after {
+  width: 100%;
+}
+
+
+.flex-container {
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: space-around;
+  // align-items: center;
+
+  .flex-movie {
+    // max-width: 369px;
+    // max-height: 254px;
+    // width: 80%;
+    // max-height: 80%;
+    background: url("../../../assets/images/movie-small.png") center no-repeat;
+    // background-size: cover;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: flex-end;
+    // margin: 0;
+
+    h3 {
+      // font-family: "Montserrat Bold";
+      // font-size: 18px;
+      // line-height: 22px;
+      // text-align: center;
+      // color: #ededed;
+      // opacity: 0.8;
+      // width: 100%;
+    }
+
+    h4 {
+      // font-size: 14px;
+      // line-height: 22px;
+      // color: rgba(237, 237, 237, 0.6);
+      // background: linear-gradient(180deg, rgba(30, 30, 30, 0) 0%, #0d0c0c 63.02%);
+      // margin: 0;
+    }
+  }
+}
