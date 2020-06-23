@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { RepositoryService } from 'src/app/services/repository.service';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+	selector: 'app-search',
+	templateUrl: './search.component.html',
+	styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
+	@Input() public searchStr: string;
+	public searchRes: {};
 
-  constructor() { }
+	constructor(private repositoryService: RepositoryService) {}
 
-  ngOnInit(): void {
-  }
-
+	public getSearchResults(): void {
+		console.log('search');
+		this.repositoryService
+			.searchMovies(this.searchStr)
+			.subscribe((res: any) => {
+				return (this.searchRes = res.results);
+			});
+	}
 }

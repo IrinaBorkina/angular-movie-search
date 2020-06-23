@@ -1,0 +1,17 @@
+<div class="thumbnail">
+	<div class="poster">
+		<img src="../../../assets/images/abstract-image.jpg" *ngIf="!movie.poster_path">
+		<img src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" *ngIf="movie.poster_path">
+	</div>
+
+	<div class="caption">
+		<a class="card-title" routerLink="/details/" [queryParams]="{ movieId: movie.id }">{{movie.name}}</a>
+		<span *ngIf="movie.vote_average">
+			{{movie.vote_average}}
+			<i class="fa fa-star"></i>
+		</span>
+		<span><strong>Release Date: </strong>{{movie.first_air_date}}</span>
+		<button class="btn btn-secondary btn-sm" routerLink="/details/" [queryParams]="{ movieId: movie.id }">View
+			details &raquo;</button>
+	</div>
+</div>

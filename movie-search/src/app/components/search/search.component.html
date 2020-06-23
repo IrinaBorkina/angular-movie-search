@@ -1,4 +1,7 @@
 <div class="search">
-  <input class="search__input" type="text" placeholder="Search...">
-  <div class="search__button"></div>
+	<input class="search__input" type="text" placeholder="Search..." value="avengers" [(ngModel)]="searchStr"
+		name="searchStr" (keyup.enter)="getSearchResults()">
+	<div class="search__button"></div>
 </div>
+
+<app-search-results [searchRes]="searchRes"></app-search-results>

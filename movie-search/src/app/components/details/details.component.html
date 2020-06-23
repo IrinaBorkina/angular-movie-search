@@ -1,0 +1,74 @@
+<!-- <div class="my-5">
+  <button class="btn btn-primary" routerLink="./../">Go Back</button>
+</div> -->
+
+<div *ngIf="details$ | async as movie">
+	<div class="movie-poster">
+		<div>
+			<!-- <div [ngStyle]="{ 'background-image': 'url('https://image.tmdb.org/t/p/w500/{{movie.poster_path}}')', 'background-position': 'center center', 'background-size': 'cover' }"> -->
+			<img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="" class="thumbnail">
+		</div>
+		<!-- <h2 class="movie-poster__text">See <span class="movie-poster__text--small"><h2>{{movie.title}}</h2></span></h2> -->
+		<!-- <a href="#">
+        <img src="../../../assets/images/play-button.svg" alt="play-button">
+      </a> -->
+	</div>
+
+	<div class="movie-header">
+		<h2 class="movie-poster__text">{{movie.title}} <span class="movie__rate"><i class="fa fa-star"></i>
+				{{movie.vote_average}}</span></h2>
+		<h3 class="movie-poster__text--small">{{movie.tagline}}</h3>
+	</div>
+
+	<div class="detailed">
+		<div class="overview">
+			<h3 class="overview__title">About</h3>
+			<p class="overview__description">{{movie.overview}}</p>
+		</div>
+
+		<div class="movie-info">
+			<h3 class="movie-info__title">Movie Info</h3>
+			<p><span *ngFor="let genre of movie.genres" class="badge badge-success mr-2">{{genre.name}}</span></p>
+			<ul class="movie-info__list list">
+				<li><span class="movie-info__criteria">Rating: </span>{{movie.vote_average}}</li>
+				<li><span class="movie-info__criteria">Popularity: </span>{{movie.popularity}}</li>
+				<li><span class="movie-info__criteria">Release Date: </span>{{movie.release_date}}</li>
+				<li><span class="movie-info__criteria">Original Language:</span> {{movie.original_language}}</li>
+				<li><span class="movie-info__criteria">Runtime: </span>{{movie.runtime}} min</li>
+			</ul>
+
+			<div *ngIf="movie.homepage" class="my-3">
+				<a href="{{movie.homepage}}" class="btn btn-info btn-block" target="_blank">Visit
+					Movies Website</a>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<!--
+<div class="cast">
+  <h3 class="cast__title">Cast</h3>
+  <ul class="cast__list d-flex justify-content-between flex-wrap">
+    <li>
+      <img class="actor__img" src="../../../assets/images/actor.png" alt="/">
+      <span class="actor__name">Zac Efron</span>
+    </li>
+    <li>
+      <img class="actor__img" src="../../../assets/images/actor.png" alt="/">
+      <span class="actor__name">Zac Efron</span>
+    </li>
+    <li>
+      <img class="actor__img" src="../../../assets/images/actor.png" alt="/">
+      <span class="actor__name">Zac Efron</span>
+    </li>
+    <li>
+      <img class="actor__img" src="../../../assets/images/actor.png" alt="/">
+      <span class="actor__name">Zac Efron</span>
+    </li>
+    <li>
+      <img class="actor__img" src="../../../assets/images/actor.png" alt="/">
+      <span class="actor__name">Zac Efron</span>
+    </li>
+  </ul>
+</div> -->
