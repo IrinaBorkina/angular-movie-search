@@ -1,18 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RepositoryService } from 'src/app/services/repository.service';
 
 @Component({
-	selector: 'app-genres',
-	templateUrl: './genres.component.html',
-	styleUrls: ['./genres.component.scss'],
+  selector: 'app-tv-genres',
+  templateUrl: './tv-genres.component.html',
+  styleUrls: ['./tv-genres.component.scss']
 })
-export class GenresComponent {
+export class TvGenresComponent {
 	public genres: {};
 
 	constructor(private repositoryService: RepositoryService) {
-		this.repositoryService.getMoviesGenres().subscribe((res: {}) => {
+		this.repositoryService.getTVShowsGenres().subscribe((res: {}) => {
 			const genresLimit: number = 20;
 			this.genres = res['genres'].slice(0, genresLimit);
 		});
 	}
+
 }

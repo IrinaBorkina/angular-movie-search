@@ -1,15 +1,8 @@
-<!-- <div class="my-5">
-  <button class="btn btn-primary" routerLink="./../">Go Back</button>
-</div> -->
-
-<div *ngIf="details$ | async as movie">
+<div *ngIf="detailsTV$ | async as movie">
 	<div class="movie-poster">
-		<img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="" class="thumbnail">
-		<!-- <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="" class="thumbnail"> -->
-
-		<!-- <img src="https://image.tmdb.org/t/p/original/jC1KqsFx8ZyqJyQa2Ohi7xgL7XC.jpg" alt="" class="thumbnail"> -->
+		<img src="https://image.tmdb.org/t/p/original{{movie.backdrop_path}}" alt="" class="thumbnail">
 		<div class="movie-header">
-			<h2 class="movie-poster__text">{{movie.title}}</h2>
+			<h2 class="movie-poster__text">{{movie.name}}</h2>
 			<h3 class="movie-poster__text--small" *ngIf="movie.tagline">{{movie.tagline}}</h3>
 		</div>
 	</div>
@@ -39,7 +32,7 @@
 
 	</div>
 
-	<app-cast [cast]="cast"></app-cast>
+	<!-- <app-cast [cast]="cast"></app-cast> -->
 
 	<div class="embed-responsive embed-responsive-16by9 mt-2 ytplayer">
 		<iframe class="embed-responsive-item" [src]="link" frameborder="0" allowfullscreen></iframe>

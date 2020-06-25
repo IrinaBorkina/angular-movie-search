@@ -1,8 +1,9 @@
-<!-- <img src="https://image.tmdb.org/t/p/w300/{{homeLastMovie.poster_path}}" *ngIf="homeLastMovie.poster_path"> -->
-
 <div class="main-movie">
-	<h2 class="main-movie__text">See <span class="main-movie__text--small">TV Series 2019</span></h2>
-	<a href="#">
-		<img src="../../../assets/images/play-button.svg" alt="play-button">
-	</a>
+	<img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}">
+	<div>
+		<h2 class="main-movie__text">{{movie.title}}</h2>
+		<a routerLink="/details/{{ movie.id }}">
+			<img src="../../../assets/images/play-button.svg" alt="play-button">
+		</a>
+	</div>
 </div>

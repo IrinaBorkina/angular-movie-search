@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { RepositoryService } from 'src/app/services/repository.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-	selector: 'app-movie-detailed',
-	templateUrl: './details.component.html',
-	styleUrls: ['./details.component.scss'],
+  selector: 'app-tv-show-details',
+  templateUrl: './tv-show-details.component.html',
+  styleUrls: ['./tv-show-details.component.scss']
 })
-export class DetailsComponent implements OnInit {
+
+export class TvShowDetailsComponent implements OnInit {
 	public subscription: Subscription;
-	public details$: Observable<any>;
+	public detailsTV$: Observable<any>;
 
 	public link: any;
 	public cast: {};
@@ -29,7 +31,7 @@ export class DetailsComponent implements OnInit {
 			this.id = params['id'];
 
 			this.repositoryService
-				.getMovieVideos(this.id)
+				.getTVShowVideos(this.id)
 				.subscribe((res: any) => {
 					this.link = this.sanitizer.bypassSecurityTrustResourceUrl(
 						`https://www.youtube.com/embed/${res['results'][0]['key']}`
@@ -37,17 +39,18 @@ export class DetailsComponent implements OnInit {
 				});
 
 			this.repositoryService
-				.getMovieCredits(this.id)
+				.getTVShowCredits(this.id)
 				.subscribe((res: {}) => {
 					res['cast'] = res['cast'].filter((item: any) => {
 						return item.profile_path;
 					});
 					this.cast = res['cast'].slice(0, this.castLimit);
+					console.log(this.cast);
 				});
 		});
 	}
 
 	public ngOnInit(): void {
-		this.details$ = this.repositoryService.getMovieDetails(this.id);
+		this.detailsTV$ = this.repositoryService.getTVShowDetails(this.id);
 	}
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Inject } from '@angular/core';
 import { RepositoryService } from 'src/app/services/repository.service';
 
 @Component({
@@ -7,17 +7,20 @@ import { RepositoryService } from 'src/app/services/repository.service';
 	styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent {
-	@Input() public searchStr: string;
-	public searchRes: {};
+	@Input() public searchString: string;
+	public searchResults: {};
 
-	constructor(private repositoryService: RepositoryService) {}
+	constructor(
+		// @Input() public searchString: string,
+		// public searchResults: {},
+		private repositoryService: RepositoryService
+	) {}
 
 	public getSearchResults(): void {
-		console.log('search');
 		this.repositoryService
-			.searchMovies(this.searchStr)
+			.searchMovies(this.searchString)
 			.subscribe((res: any) => {
-				return (this.searchRes = res.results);
+				return (this.searchResults = res.results);
 			});
 	}
 }

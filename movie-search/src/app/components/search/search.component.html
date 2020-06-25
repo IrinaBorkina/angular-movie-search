@@ -1,7 +1,7 @@
 <div class="search">
-	<input class="search__input" type="text" placeholder="Search..." value="avengers" [(ngModel)]="searchStr"
-		name="searchStr" (keyup.enter)="getSearchResults()">
+	<input class="search__input" type="text" placeholder="Search..." value="avengers" [(ngModel)]="searchString"
+		name="searchString" (keyup.enter)="getSearchResults()">
 	<div class="search__button"></div>
 </div>
 
-<app-search-results [searchRes]="searchRes"></app-search-results>
+<app-search-results [searchResults]="searchResults"></app-search-results>

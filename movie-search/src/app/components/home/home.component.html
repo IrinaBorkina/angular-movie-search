@@ -1,26 +1,54 @@
-<app-main-movie></app-main-movie>
-<!-- <app-recommended-list></app-recommended-list> -->
+<div class="container-fluid" *ngIf="newMovie">
+	<div class="row is-flex">
+		<div *ngFor="let movie of newMovie; let i = index;">
+			<app-main-movie [movie]="movie"></app-main-movie>
+		</div>
+	</div>
+</div>
 
 <div class="recommend-block my-5">
 	<div class="mb-4">
 		<h2 class="recommended-list__title mb-3">Popular movies and TV-shows</h2>
-		<ul class="navbar-nav d-flex flex-row">
-			<li class="nav-item mx-3">
-				<a class="nav-link" routerLink="/home/new-list" routerLinkActive="active">New</a>
-			</li>
-			<li class="nav-item mx-3">
-				<a class="nav-link" routerLink="/home/popular-list" routerLinkActive="active">Popular</a>
-			</li>
-			<li class="nav-item mx-3">
-				<a class="nav-link" routerLink="/home/recommended-list" routerLinkActive="active">Recommended to you</a>
-			</li>
-		</ul>
+		<nav class="navbar">
+			<ul class="navbar-nav d-flex flex-row">
+				<li class="nav-item mx-3">
+					<a class="nav-link" routerLink="/home/new-list" routerLinkActive="active">New</a>
+				</li>
+				<li class="nav-item mx-3">
+					<a class="nav-link" routerLink="/home/popular-list" routerLinkActive="active">Popular</a>
+				</li>
+				<li class="nav-item mx-3">
+					<a class="nav-link" routerLink="/home/recommended-list" routerLinkActive="active">Recommended to
+						you</a>
+				</li>
+			</ul>
+		</nav>
 	</div>
 
 	<router-outlet></router-outlet>
 
 </div>
 
-<app-main-movie></app-main-movie>
-<!-- <app-main-movie></app-main-movie>
-<app-main-movie></app-main-movie> -->
+<div class="container-fluid" *ngIf="popularMovie">
+	<div class="row is-flex">
+		<div *ngFor="let movie of popularMovie; let i = index;">
+			<app-main-movie [movie]="movie"></app-main-movie>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid" *ngIf="recommendMovie">
+	<div class="row is-flex">
+		<div *ngFor="let movie of recommendMovie; let i = index;">
+			<app-main-movie [movie]="movie"></app-main-movie>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid" *ngIf="popularTV">
+	<div class="row is-flex">
+		<div *ngFor="let movie of popularTV; let i = index;">
+			<app-main-movie [movie]="movie"></app-main-movie>
+		</div>
+	</div>
+</div>

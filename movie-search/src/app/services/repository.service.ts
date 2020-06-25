@@ -1,32 +1,32 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class RepositoryService {
-	public apiKey: string;
-	public url: string;
+	public apiKey: string = environment.apiKey;
+	public url: string = environment.apiUrl;
 
-	constructor(private http: HttpClient) {
-		this.apiKey = '6b6f85bdc0a7f8e433b0fffb15b82336';
-		this.url = 'https://api.themoviedb.org/3';
-	}
+	constructor(private http: HttpClient) {}
 
-	public searchMovies(searchStr: string): Observable<{}> {
+	public searchMovies(searchString: string): Observable<{}> {
 		return this.http.get(
-			`${this.url}/search/movie?api_key=${this.apiKey}&query=${searchStr}&page=1&include_adult=false`
+			`${this.url}/search/multi?api_key=${this.apiKey}&query=${searchString}&page=1&include_adult=false`
 		);
 	}
 
-	public getMovie(id: number): Observable<{}> {
-		return this.http.get(`${this.url}/movie/${id}?api_key=${this.apiKey}`);
+	public getMovieDetails(id: number): Observable<{}> {
+		return this.http.get(
+			`${this.url}/movie/${id}?api_key=${this.apiKey}&append_to_response=videos`
+		);
 	}
 
 	public getTVShowDetails(tv_id: number): Observable<{}> {
 		return this.http.get(`${this.url}/tv/${tv_id}?api_key=${this.apiKey}`);
 	}
 
-	public getGenres(): Observable<{}> {
+	public getMoviesGenres(): Observable<{}> {
 		return this.http.get(
 			`${this.url}/genre/movie/list?api_key=${this.apiKey}`
 		);
@@ -44,9 +44,9 @@ export class RepositoryService {
 		);
 	}
 
-	public getTVShowsByGenre(id: number): Observable<{}> {
+	public getTVShowsByGenre(genre_id: number): Observable<{}> {
 		return this.http.get(
-			`${this.url}/discover/tv?api_key=${this.apiKey}&with_genres=${id}`
+			`${this.url}/discover/tv?api_key=${this.apiKey}&with_genres=${genre_id}`
 		);
 	}
 
@@ -88,9 +88,27 @@ export class RepositoryService {
 		);
 	}
 
-	// public getMovieVideos(id: number): Observable<{}> {
-	// return this.http.get(
-	// 	`${this.url}/movie/${id}/videos?api_key=${this.apiKey}&language=en-US`
-	// );
-	// }
+	public getMovieCredits(id: number): Observable<{}> {
+		return this.http.get(
+			`${this.url}/movie/${id}/credits?api_key=${this.apiKey}`
+		);
+	}
+
+	public getTVShowCredits(id: number): Observable<{}> {
+		return this.http.get(
+			`${this.url}/tv/${id}/credits?api_key=${this.apiKey}`
+		);
+	}
+
+	public getMovieVideos(id: number): Observable<{}> {
+		return this.http.get(
+			`${this.url}/movie/${id}/videos?api_key=${this.apiKey}&language=en-US`
+		);
+	}
+
+	public getTVShowVideos(id: number): Observable<{}> {
+		return this.http.get(
+			`${this.url}/tv/${id}/videos?api_key=${this.apiKey}&language=en-US`
+		);
+	}
 }

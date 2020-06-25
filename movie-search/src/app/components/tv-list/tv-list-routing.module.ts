@@ -4,7 +4,7 @@ import { TVListComponent } from './tv-list.component';
 
 const routes: Routes = [
 	{
-		path: ':id/:name',
+		path: 'tv-shows/:id/:name',
 		component: TVListComponent,
 	},
 ];

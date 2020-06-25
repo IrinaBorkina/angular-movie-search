@@ -5,17 +5,11 @@
 	</div>
 
 	<div class="caption">
-		<a class="card-title" routerLink="/details/" [queryParams]="{ movieId: movie.id }"
-			title="{{movie.title}}">{{movie.title}}</a>
+		<a class="card-title" routerLink="/details/{{movie.id}}" title="{{movie.title}}">{{movie.title}}</a>
 		<span *ngIf="movie.vote_average">
 			{{movie.vote_average}}
 			<i class="fa fa-star"></i>
 		</span>
 		<p><strong>Release Date: </strong>{{movie.release_date}}</p>
-		<p>
-			<button class="btn btn-secondary btn-sm" routerLink="/details/" [queryParams]="{ movieId: movie.id }">View
-				details
-				&raquo;</button>
-		</p>
 	</div>
 </div>

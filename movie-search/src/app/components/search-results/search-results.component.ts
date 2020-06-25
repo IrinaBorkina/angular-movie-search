@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
 	styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent {
-	@Input() public searchRes: {};
+	@Input() public searchResults: {} | undefined;
 }
