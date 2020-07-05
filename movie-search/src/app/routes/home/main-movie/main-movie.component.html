@@ -1,0 +1,12 @@
+<div class="main-movie">
+	<div class="poster">
+		<img class="main__img" src="https://image.tmdb.org/t/p/original/{{movie?.backdrop_path}}">
+	</div>
+
+	<div class="movie-header">
+		<h2 class="poster__title mb-5">{{movie?.title}}</h2>
+		<a class="poster__button" routerLink="/movie-details/{{ movie?.id }}">
+			<img src="../../../assets/images/play-button.svg" alt="play-button">
+		</a>
+	</div>
+</div>

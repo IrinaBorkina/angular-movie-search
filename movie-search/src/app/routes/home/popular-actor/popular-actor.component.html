@@ -1,0 +1,11 @@
+<div class="cast" *ngIf="cast && cast.length > 0">
+	<div class="d-flex flex-wrap justify-content-between">
+		<ul class="cast__list d-flex" *ngFor="let actor of cast">
+			<li>
+				<img class="actor__img" src="../../../../assets/images/abstract-image-person.jpg" alt="" *ngIf="!actor.profile_path">
+				<img class="actor__img" src="https://image.tmdb.org/t/p/w500/{{actor.profile_path}}" alt="" *ngIf="actor.profile_path">
+				<a class="actor__name" routerLink="/actor-details/{{actor.id}}">{{actor.name}}</a>
+			</li>
+		</ul>
+	</div>
+</div>

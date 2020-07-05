@@ -1,0 +1,18 @@
+.person-info {
+	width: 40%;
+}
+
+.actor__img {
+	object-fit: cover;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+
+.text {
+	font-size: 14px;
+}
+
+.cards-block {
+	width: calc(33% - 20px);
+}

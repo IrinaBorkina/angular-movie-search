@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="d-flex pt-4" *ngIf="person">
+		<div class="container-fluid person-info">
+			<div class="d-flex justify-content-between my-3">
+				<div class="mr-2">
+					<img class="actor__img" src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}"
+						*ngIf="person.profile_path">
+					<img class="actor__img" src="assets/images/abstract-image.jpg" *ngIf="!person.profile_path">
+				</div>
+				<div>
+					<h3 class="text-ellipsis" *ngIf="person.name">{{person.name}}</h3>
+					<p *ngIf="person.birthday"><strong>Birthday: </strong>{{person.birthday}}</p>
+					<p *ngIf="person.place_of_birth"><strong>Place of Birth: </strong>{{person.place_of_birth}}</p>
+					<p *ngIf="person.popularity"><strong>Popularity: </strong> {{person.popularity}}</p>
+				</div>
+			</div>
+			<div class="caption" *ngIf="person.biography">
+				<h4>Biography: </h4>
+				<p class="text">{{person.biography}}</p>
+			</div>
+		</div>
+
+		<div class="container-fluid" *ngIf="movies && movies.length > 0">
+			<h3>Movies</h3>
+			<div class="cards-wrapper">
+				<div class="cards-block p-0" *ngFor="let movie of movies; let i = index;">
+					<app-movie-card [movie]="movie"></app-movie-card>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

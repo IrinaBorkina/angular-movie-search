@@ -1,0 +1,20 @@
+.watchlist__title {
+	padding: 30px 0px 30px;
+	display: block;
+	width: 100%;
+	text-align: center;
+	border-bottom: 1px solid rgb(41, 41, 41);
+	text-transform: uppercase;
+}
+
+.watchlist__card-title {
+	font-family: "Montserrat Bold";
+	font-size: 1em;
+	line-height: 22px;
+	color: #ededed;
+	text-decoration: none;
+}
+
+.watchlist__card-title:hover {
+	color: #b4b4b4;
+}

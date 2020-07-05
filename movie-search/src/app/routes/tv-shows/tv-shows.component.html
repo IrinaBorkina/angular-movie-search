@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="d-flex">
+		<app-tv-genres [genres]="genres"></app-tv-genres>
+
+		<div class="pt-3" *ngIf="tvShows">
+			<h3 class="ml-3">{{title}}</h3>
+			<div class="cards-wrapper">
+				<div class="cards-block p-0" *ngFor="let movie of tvShows; let i = index;">
+					<app-tv-show-card [movie]="movie"></app-tv-show-card>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

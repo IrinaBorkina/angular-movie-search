@@ -1,0 +1,89 @@
+.poster {
+	position: relative;
+}
+
+.poster__img {
+	width: 100%;
+}
+
+.video-frame {
+	display: none;
+}
+
+.movie-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.poster__title {
+	display: flex;
+	flex-direction: column;
+	font-family: "Montserrat Bold";
+	font-style: normal;
+	font-weight: bold;
+	font-size: 7vw;
+	line-height: 15vh;
+	text-align: center;
+	color: #ededed;
+}
+
+.poster__subtitle {
+	text-align: center;
+	font-size: 3vw;
+}
+
+.poster__button {
+	width: 20%;
+}
+
+.poster__button:hover {
+	cursor: pointer;
+	transform: scale(1.05);
+}
+
+.title {
+	font-family: "Montserrat Bold";
+	font-size: 32px;
+	line-height: 39px;
+	color: #ededed;
+}
+
+.details {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 50px 0;
+}
+
+.overview {
+	flex: 1;
+	margin: 0 20px;
+}
+
+.overview__description {
+	font-size: 16px;
+	line-height: 24px;
+	color: rgba(237, 237, 237, 0.6);
+}
+
+.movie-info {
+	flex: 1;
+	margin: 0 20px;
+}
+
+.movie-info__list {
+	padding: 0;
+	margin: 0;
+	color: rgba(237, 237, 237, 0.6);
+	list-style: none;
+}
+
+.movie-info__criteria {
+	color: #ededed;
+}

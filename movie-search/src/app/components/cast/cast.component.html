@@ -6,7 +6,7 @@
 		<ul class="cast__list d-flex" *ngFor="let actor of cast">
 			<li>
 				<img class="actor__img" src="https://image.tmdb.org/t/p/w500/{{actor.profile_path}}" alt="">
-				<h6 class="actor__name"><a routerLink="/actor/{{actor.id}}">{{actor.name}}</a></h6>
+				<a class="actor__name" routerLink="/actor-details/{{actor.id}}">{{actor.name}}</a>
 			</li>
 		</ul>
 	</div>

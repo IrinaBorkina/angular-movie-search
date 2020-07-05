@@ -1,15 +1,18 @@
-<div class="thumbnail">
-	<div class="poster">
-		<img src="../../../assets/images/abstract-image.jpg" *ngIf="!movie.poster_path">
-		<img src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" *ngIf="movie.poster_path">
+<div class="poster">
+	<img class="poster__img" src="../../../assets/images/abstract-image-bg.jpg" *ngIf="!movie?.backdrop_path">
+	<img class="poster__img" src="https://image.tmdb.org/t/p/w300/{{movie?.backdrop_path}}"
+		*ngIf="movie?.backdrop_path">
+
+	<div class="bookmark">
+		<div (click)="watchListThis()" *ngIf="!isWatchList" class="bookmark-btn">
+			<i class="fa fa-bookmark-o"></i>
+		</div>
+		<div *ngIf="isWatchList" class="bookmark-btn">
+			<i class="fa fa-bookmark"></i>
+		</div>
 	</div>
 
-	<div class="caption">
-		<a class="card-title" routerLink="/details/{{movie.id}}" title="{{movie.title}}">{{movie.title}}</a>
-		<span *ngIf="movie.vote_average">
-			{{movie.vote_average}}
-			<i class="fa fa-star"></i>
-		</span>
-		<p><strong>Release Date: </strong>{{movie.release_date}}</p>
+	<div class="about">
+		<a class="about__title" routerLink="/movie-details/{{movie?.id}}" title="{{movie?.title}}">{{movie?.title}}</a>
 	</div>
 </div>

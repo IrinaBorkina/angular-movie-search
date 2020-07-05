@@ -121,10 +121,6 @@
           "always",
           "ignore-bound-class-methods"
       ],
-      "strict-boolean-expressions": [
-          true,
-          "allow-undefined-union"
-      ],
       "triple-equals": [
           true,
           "allow-null-check"

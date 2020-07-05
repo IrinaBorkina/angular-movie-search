@@ -1,46 +1,79 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { TVListComponent } from './components/tv-list/tv-list.component';
-import { MoviesComponent } from './components/movies/movies.component';
-import { DetailsComponent } from './components/details/details.component';
-import { SearchComponent } from './components/search/search.component';
-import { TvShowDetailsComponent } from './components/tv-show-details/tv-show-details.component';
+import { MovieDetailsComponent } from './routes/movies/movie-details/movie-details.component';
+import { TvShowDetailsComponent } from './routes/tv-shows/tv-show-details/tv-show-details.component';
+import { ActorDetailsComponent } from './components/actor-details/actor-details.component';
 
 const routes: Routes = [
 	{
 		path: '',
-		component: HomeComponent,
-	},
-	{
-		path: '',
-		redirectTo: '/home',
+		redirectTo: 'home/new-list',
 		pathMatch: 'full',
 	},
 	{
+		path: 'home',
+		redirectTo: 'home/new-list',
+		pathMatch: 'full',
+	},
+	{
+		path: 'home',
+		loadChildren: () =>
+			import('./routes/home/home.module').then(
+				(m: typeof import('./routes/home/home.module')) => m.HomeModule
+			),
+	},
+	{
 		path: 'tv-shows',
-		component: TVListComponent,
+		loadChildren: () =>
+			import('./routes/tv-shows/tv-shows.module').then(
+				(m: typeof import('./routes/tv-shows/tv-shows.module')) =>
+					m.TvShowsModule
+			),
 	},
 	{
 		path: 'movies',
-		component: MoviesComponent,
+		loadChildren: () =>
+			import('./routes/movies/movies.module').then(
+				(m: typeof import('./routes/movies/movies.module')) =>
+					m.MoviesModule
+			),
 	},
-	// {
-	// 	path: 'details',
-	// 	component: DetailsComponent,
-	// },
-	// {
-	// 	path: 'tv-show-details',
-	// 	component: TvShowDetailsComponent,
-	// },
+	{
+		path: 'movie-details/:id',
+		component: MovieDetailsComponent,
+	},
+	{
+		path: 'tv-show-details/:id',
+		component: TvShowDetailsComponent,
+	},
+	{
+		path: 'actor-details/:id',
+		component: ActorDetailsComponent,
+	},
 	{
 		path: 'search',
-		component: SearchComponent,
+		loadChildren: () =>
+			import('./routes/search/search.module').then(
+				(m: typeof import('./routes/search/search.module')) =>
+					m.SearchModule
+			),
+	},
+	{
+		path: 'watch-list',
+		loadChildren: () =>
+			import('./routes/watchlist/watchlist.module').then(
+				(m: typeof import('./routes/watchlist/watchlist.module')) =>
+					m.WatchlistModule
+			),
 	},
 ];
 
 @NgModule({
-	imports: [RouterModule.forRoot(routes)],
+	imports: [
+		RouterModule.forRoot(routes, {
+			scrollPositionRestoration: 'enabled',
+		}),
+	],
 	exports: [RouterModule],
 })
 export class AppRoutingModule {}

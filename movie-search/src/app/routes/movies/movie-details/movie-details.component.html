@@ -1,0 +1,86 @@
+<div class="container">
+	<div *ngIf="details$ | async as movie">
+		<div class="poster">
+			<img src="../../../assets/images/abstract-image-bg.jpg" *ngIf="!movie.backdrop_path" class="poster__img">
+			<img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" id="img" *ngIf="movie.backdrop_path"
+				class="poster__img">
+
+			<div class="embed-responsive embed-responsive-16by9 ytplayer video-frame" id="frame">
+				<iframe class="embed-responsive-item " [src]="link" frameborder="0" allowfullscreen></iframe>
+			</div>
+
+			<div class="movie-header" id="movie-header" (click)="showTrailer()">
+				<h2 class="poster__title">{{movie.title}}</h2>
+				<h3 class="poster__subtitle" *ngIf="movie.tagline">{{movie.tagline}}</h3>
+				<img class="poster__button" src="../../../assets/images/play-button.svg" alt="play-button">
+			</div>
+		</div>
+
+		<div class="details">
+			<div class="overview">
+				<h3 class="overview__title title">About</h3>
+				<p class="overview__description">{{movie.overview}}</p>
+			</div>
+
+			<div class="movie-info">
+				<h3 class="movie-info__title title">Movie info</h3>
+				<p>
+					<a routerLink="/movies/{{genre.id}}/{{genre.name}}" *ngFor="let genre of movie.genres"
+						class="badge badge-success mr-2">
+						{{genre.name}}
+					</a>
+				</p>
+				<ul class="movie-info__list">
+					<li><span class="movie-info__criteria">Rating: </span>{{movie.vote_average}} <i
+							class="fa fa-star"></i></li>
+					<li><span class="movie-info__criteria">Popularity: </span>{{movie.popularity}}</li>
+					<li><span class="movie-info__criteria">Release Date: </span>{{movie.release_date}}</li>
+					<li><span class="movie-info__criteria">Original Language:</span> {{movie.original_language}}
+					</li>
+					<li><span class="movie-info__criteria">Runtime: </span>{{movie.runtime}} minutes</li>
+				</ul>
+
+				<div *ngIf="movie.homepage" class="my-3">
+					<a href="{{movie.homepage}}" class="btn btn-info btn-block" target="_blank">Visit
+						Movies Website</a>
+				</div>
+			</div>
+
+		</div>
+
+		<app-cast [cast]="cast"></app-cast>
+
+		<div class="container-fluid">
+			<div class="row is-flex" *ngIf="similarMovies && similarMovies.length > 0">
+				<div class="col-md-12">
+					<h2 class="title">You may also like</h2>
+				</div>
+				<div class="col-md-3 col-6" *ngFor="let movie of similarMovies">
+					<app-movie-card [movie]="movie"></app-movie-card>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row my-4" *ngIf="reviews &&  reviews.length > 0">
+				<div class="col-md-12">
+					<h2 class="title">Reviews</h2>
+				</div>
+				<div class="col-md-12" *ngFor="let review of reviews">
+					<blockquote *ngIf="review.content.length < 1500">
+						<p>"{{review.content}}"</p>
+						<cite title="{{review.author}}">
+							<a href="{{review.url}}" target="_blank">- {{review.author}}</a>
+						</cite>
+					</blockquote>
+					<blockquote *ngIf="review.content.length > 1500">
+						<cite title="{{review.author}}">
+							<a href="{{review.url}}" target="_blank">- {{review.author}}</a>
+						</cite>
+					</blockquote>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

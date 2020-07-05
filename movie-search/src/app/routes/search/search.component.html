@@ -1,0 +1,66 @@
+<div class="container">
+	<form class="form py-5" #myForm="ngForm" (submit)="submitForm(myForm)" novalidate>
+		<input class="form-control search__input my-3" type="text" placeholder="Search..." value="avengers"
+			[(ngModel)]="searchString" name="searchString" (keyup.enter)="getSearchResults()" ngModel required>
+		<div class="search__button"></div>
+		<div *ngIf="isSubmitted && myForm.invalid">
+			<p class="text-warning">Please enter the title</p>
+		</div>
+
+		<div class="form-group">
+			<label>Are you already an adult?</label>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="adult" name="adult" value="true"
+					[(ngModel)]="isAdult">
+				<label class="form-check-label" for="adult">Adult</label>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label>What do you search?</label>
+			<div class="form-group">
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" id="movie" name="type" value="movie" [(ngModel)]="type"
+						ngModel required>
+					<label class="form-check-label" for="movie">Movie</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" id="tv" name="type" value="tv" [(ngModel)]="type"
+						ngModel required>
+					<label class="form-check-label" for="tv">TV Show</label>
+				</div>
+			</div>
+			<div *ngIf="isSubmitted && myForm.invalid">
+				<p class="text-warning">Please select either value</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col">
+				<label>Language</label>
+
+				<div class="form-group">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" id="en" name="language" value="en"
+							[(ngModel)]="language" ngModel required>
+						<label class="form-check-label" for="en">English</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" id="ru" name="language" value="ru"
+							[(ngModel)]="language" ngModel required>
+						<label class="form-check-label" for="ru">Russian</label>
+					</div>
+					<div *ngIf="isSubmitted && myForm.invalid">
+						<p class="text-warning">Please select either value</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<button type="submit" class="btn btn-outline-success">Search</button>
+	</form>
+
+	<app-search-results [searchResults]="searchResults" [isMovieSearch]="typeSearch"></app-search-results>
+
+</div>

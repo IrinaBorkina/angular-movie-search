@@ -1,0 +1,10 @@
+<div class="container-fluid" *ngIf="recommendList">
+	<div class="cards-wrapper">
+		<div class="cards-block p-0" *ngFor="let movie of recommendList; let i = index;">
+			<app-movie-card [movie]="movie"></app-movie-card>
+		</div>
+		<div class="cards-block p-0" *ngFor="let movie of recommendTVList; let i = index;">
+			<app-tv-show-card [movie]="movie"></app-tv-show-card>
+		</div>
+	</div>
+</div>

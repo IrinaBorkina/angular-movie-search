@@ -1,0 +1,19 @@
+<h2 class="watchlist__title">Your Watchlist</h2>
+
+<div class="container">
+	<div *ngFor="let movie of this.watchList ; let i = index" class="d-flex my-3">
+		<div class="mr-5">
+			<img src="../../../assets/images/abstract-image.jpg" *ngIf="!movie.poster_path">
+			<img src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}" *ngIf="movie.poster_path">
+		</div>
+
+		<div>
+			<h4><a class="watchlist__card-title" routerLink="/movie-details/{{movie.id}}">{{ movie.title }}</a></h4>
+			<h4><a class="watchlist__card-title" routerLink="/tv-show-details/{{movie.id}}" *ngIf="!movie.title">{{ movie.name }}</a></h4>
+			<p>Rating: {{ movie.vote_average }} <i class="fa fa-star"></i></p>
+			<p>Release Date: {{ movie.release_date }} <span *ngIf="!movie.release_date">{{ movie.first_air_date }}</span></p>
+			<p>{{ movie.overview }}</p>
+			<button class="btn btn-outline-warning" (click)="watchListRemove(i)">Remove from WatchList</button>
+		</div>
+	</div>
+</div>

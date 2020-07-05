@@ -1,3 +1,19 @@
+footer {
+	background: #121212;
+}
+
 .footer-info {
 	color: #ededed;
+}
+
+li {
+	list-style: none;
+}
+
+.text,
+li > a {
+	font-size: 14px;
+	line-height: 40px;
+	color: #ededed;
+	opacity: 0.6;
 }

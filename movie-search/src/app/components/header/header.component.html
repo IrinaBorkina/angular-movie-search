@@ -1,26 +1,44 @@
-<nav class="navbar d-flex">
-	<div>
-		<a class="navbar-brand" href="#">
-			<img src="../../../assets/images/logo.png" alt="logo">
-		</a>
-	</div>
+<header class="header">
+	<div class="container">
+		<nav class="navbar d-flex">
+			<div>
+				<a class="navbar-brand" href="#">
+					<img class="logo" src="../../../assets/images/logo.png" alt="logo">
+				</a>
+			</div>
 
-	<div class="d-flex justify-content-around align-items-center flex-fill flex-wrap">
-		<ul class="navbar-nav d-flex flex-row justify-content-around">
-			<li class="nav-item mx-5">
-				<a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
-			</li>
-			<li class="nav-item mx-5">
-				<a class="nav-link" routerLink="/movies" routerLinkActive="active">Movies</a>
-			</li>
-			<li class="nav-item mx-5">
-				<a class="nav-link" routerLink="/tv-shows" routerLinkActive="active">TV Shows</a>
-			</li>
-			<li class="nav-item mx-5">
-				<a class="nav-link" routerLink="/search" routerLinkActive="active">Search</a>
-			</li>
-		</ul>
-	</div>
-</nav>
+			<div class="d-flex justify-content-around align-items-center flex-fill">
+				<ul class="navbar-nav d-flex flex-row justify-content-around flex-wrap">
+					<li class="nav-item mx-5">
+						<a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+					</li>
+					<li class="nav-item mx-5">
+						<a class="nav-link" routerLink="/movies" routerLinkActive="active">Movies</a>
+					</li>
+					<li class="nav-item mx-5">
+						<a class="nav-link" routerLink="/tv-shows" routerLinkActive="active">TV Shows</a>
+					</li>
+					<li class="nav-item mx-5">
+						<a class="nav-link" routerLink="/watch-list" routerLinkActive="active">Library</a>
+					</li>
+				</ul>
+			</div>
 
-<router-outlet></router-outlet>
+			<div>
+				<a class="search nav-link" routerLink="/search" routerLinkActive="active"><i
+						class="fa fa-search"></i></a>
+			</div>
+			<div>
+				<a class="notification nav-link" href="#"><i class="fa fa-bell-o"></i></a>
+			</div>
+			<div>
+				<a class="auth" href="#"><img src="assets/images/auth.png" alt="" class="pr-2"><i
+						class="fa fa-sort-desc"></i></a>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<div class="header-router pb-5">
+	<router-outlet></router-outlet>
+</div>
