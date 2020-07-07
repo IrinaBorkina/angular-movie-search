@@ -1,6 +1,7 @@
 .nav-link {
 	position: relative;
 	color: #ededed99;
+	cursor: pointer;
 }
 
 .nav-link:hover {
@@ -26,4 +27,8 @@
 .nav-link:hover:after,
 .nav-link:focus:after {
 	width: 100%;
+}
+
+.tab-wrapper {
+	min-height: 340px;
 }

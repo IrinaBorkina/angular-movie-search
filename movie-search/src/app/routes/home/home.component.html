@@ -18,22 +18,32 @@
 			<nav class="navbar">
 				<ul class="navbar-nav d-flex flex-row">
 					<li class="nav-item mx-3">
-						<a class="nav-link" routerLink="/home/new-list" routerLinkActive="active">New</a>
+						<a class="nav-link link active" (click)="switch('New')" (click)="activeTab($event)">New</a>
 					</li>
 					<li class="nav-item mx-3">
-						<a class="nav-link" routerLink="/home/popular-list" routerLinkActive="active">Popular</a>
+						<a class="nav-link link" (click)="switch('Popular')" (click)="activeTab($event)">Popular</a>
 					</li>
 					<li class="nav-item mx-3">
-						<a class="nav-link" routerLink="/home/recommended-list" routerLinkActive="active">Recommended to
-							you</a>
+						<a class="nav-link link" (click)="switch('Recommended')" (click)="activeTab($event)">Recommended to yoy</a>
 					</li>
 				</ul>
 			</nav>
 		</div>
 
-		<div style="min-height: 340px;">
-			<router-outlet></router-outlet>
-		</div>
+		<ng-container [ngSwitch]="tab">
+			<div class="tab-wrapper" *ngSwitchCase="Tabs.New">
+				<app-new-list></app-new-list>
+			</div>
+			<div class="tab-wrapper" *ngSwitchCase="Tabs.Popular">
+				<app-popular-list></app-popular-list>
+			</div>
+			<div class="tab-wrapper" *ngSwitchCase="Tabs.Recommended">
+				<app-recommended-list></app-recommended-list>
+			</div>
+			<div class="tab-wrapper" *ngSwitchDefault>
+				<app-new-list></app-new-list>
+			</div>
+		</ng-container>
 	</div>
 
 	<div class="container-fluid" *ngIf="popularMovie">

@@ -2,6 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IMovie } from 'src/app/models/movie';
 import { RepositoryService } from 'src/app/services/repository.service';
 
+export enum Tabs {
+	New = 'New',
+	Popular = 'Popular',
+	Recommended = 'Recommended',
+}
+
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
@@ -9,7 +15,6 @@ import { RepositoryService } from 'src/app/services/repository.service';
 })
 export class HomeComponent implements OnInit {
 	@Input() public movie?: IMovie;
-
 	@Input() public cast: [] = [];
 
 	public newMovie?: IMovie[];
@@ -18,12 +23,19 @@ export class HomeComponent implements OnInit {
 	public limit: number = 3;
 	public limitActors: number = 6;
 
+	public Tabs: typeof Tabs = Tabs;
+	public tab: Tabs = Tabs.New;
+
 	constructor(private repositoryService: RepositoryService) {}
 
 	public ngOnInit(): void {
 		this.repositoryService.getNewMovies().subscribe((res: any) => {
 			const moviesArray: IMovie[] = [];
-			moviesArray.push(res['results'][Math.floor(Math.random() * res['results'].length)]);
+			moviesArray.push(
+				res['results'][
+					Math.floor(Math.random() * res['results'].length)
+				]
+			);
 			this.newMovie = moviesArray;
 		});
 
@@ -37,5 +49,27 @@ export class HomeComponent implements OnInit {
 			});
 			this.cast = res['results'].slice(0, this.limitActors);
 		});
+	}
+
+	public switch(item: any): void {
+		switch (item) {
+			case 'Popular':
+				this.tab = Tabs.Popular;
+				break;
+			case 'Recommended':
+				this.tab = Tabs.Recommended;
+				break;
+			default:
+				this.tab = Tabs.New;
+		}
+	}
+
+	public activeTab(e: Event): void {
+		const MENU_LIST: NodeListOf<Element> = document.querySelectorAll('.link');
+
+		MENU_LIST.forEach((el: Element) => el.classList.remove('active'));
+		if (e.target) {
+			(e.target as HTMLInputElement).classList.add('active');
+		}
 	}
 }

@@ -30,15 +30,11 @@
 					<label class="form-check-label" for="tv">TV Show</label>
 				</div>
 			</div>
-			<div *ngIf="isSubmitted && myForm.invalid">
-				<p class="text-warning">Please select either value</p>
-			</div>
 		</div>
 
 		<div class="row">
 			<div class="form-group col">
 				<label>Language</label>
-
 				<div class="form-group">
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="radio" id="en" name="language" value="en"
@@ -50,11 +46,7 @@
 							[(ngModel)]="language" ngModel required>
 						<label class="form-check-label" for="ru">Russian</label>
 					</div>
-					<div *ngIf="isSubmitted && myForm.invalid">
-						<p class="text-warning">Please select either value</p>
-					</div>
 				</div>
-
 			</div>
 		</div>
 

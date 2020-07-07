@@ -7,12 +7,7 @@ import { ActorDetailsComponent } from './components/actor-details/actor-details.
 const routes: Routes = [
 	{
 		path: '',
-		redirectTo: 'home/new-list',
-		pathMatch: 'full',
-	},
-	{
-		path: 'home',
-		redirectTo: 'home/new-list',
+		redirectTo: 'home',
 		pathMatch: 'full',
 	},
 	{
